@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
+import Video from './Video';
 
 const TrainingInputFile: React.FC = () => {
-  return (
-    <div>
-
-    </div>
-  );
+    return (
+        <div>
+            <Video/>
+        </div>
+    );
 };
 
 export default TrainingInputFile;
