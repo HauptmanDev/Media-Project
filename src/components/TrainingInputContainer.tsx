@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-const TreningInputContainer: React.FC = () => {
+const TrainingInputContainer: React.FC = () => {
   return (
     <div>
 
@@ -9,4 +9,4 @@ const TreningInputContainer: React.FC = () => {
   );
 };
 
-export default TreningInputContainer;
+export default TrainingInputContainer;

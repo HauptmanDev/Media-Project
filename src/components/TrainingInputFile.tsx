@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-const TreningInputFile: React.FC = () => {
+const TrainingInputFile: React.FC = () => {
   return (
     <div>
 
@@ -9,4 +9,4 @@ const TreningInputFile: React.FC = () => {
   );
 };
 
-export default TreningInputFile;
+export default TrainingInputFile;

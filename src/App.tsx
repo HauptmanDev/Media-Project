@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import TreningInputPage from './components/TreningInputPage';
+import TrainingInputPage from './components/TrainingInputPage';
 
 const App: React.FC = () => {
     return (
         <div className="App">
-            <TreningInputPage/>
+            <TrainingInputPage/>
         </div>
     );
 };
