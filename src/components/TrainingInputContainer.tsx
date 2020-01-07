@@ -1,10 +1,10 @@
 import React from 'react';
-import TrainingInputFile from "./TrainingInputFile";
+import Video from "./video/Video";
 
 const TrainingInputContainer: React.FC = () => {
     return (
         <div>
-            <TrainingInputFile/>
+            <Video/>
         </div>
     );
 };
