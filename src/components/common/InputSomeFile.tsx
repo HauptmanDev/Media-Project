@@ -46,9 +46,6 @@ const InputSomeFile: React.FC<IPropsSomeFile> = ({callbackFileData}) => {
             }}/>
             <button onClick={() => onButtonClick()}>add</button>
         </span>
-            {/*<div>*/}
-            {/*    <img style={{width: '200px', height: '200px'}} src={fileURL} alt={'some file'}/>*/}
-            {/*</div>*/}
         </>
     );
 };
