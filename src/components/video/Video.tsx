@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
-import {Range} from 'react-range';
-
+import UniversalRange from '../common/UniversalRange'
 
 const Video: React.FC = () => {
 
@@ -46,7 +45,7 @@ const Video: React.FC = () => {
 
         if (dursecs < 10) {
             let dursecsNew = `0${dursecs}`;
-            changeDurSecTime( `${dursecsNew}`)
+            changeDurSecTime(`${dursecsNew}`)
         } else changeDurSecTime(`${dursecs}`);
 
 
@@ -64,12 +63,15 @@ const Video: React.FC = () => {
                 <source src={'http://mirrors.standaloneinstaller.com/video-sample/page18-movie-4.mp4'}/>
             </video>
             <div>
-                <SuperSimple changeTime={changeTime} currentTime={currentTime}/>
+                <UniversalRange changeTime={changeTime} currentTime={currentTime}/>
                 <div style={{display: "flex", backgroundColor: "black", padding: '5px', flexDirection: "row"}}>
                     <button onClick={onPlayPause}>{titlePlayPause}</button>
-                    <span
-                        style={{color: "white"}}>{curMinTime}:{curSecTime}</span><span style={{color: "white"}}>/</span><span
-                    style={{color: "white"}}>{durMinTime}:{durSecTime}</span>
+                    <div style={{}}>
+                        <span style={{color: "white"}}>{curMinTime}:{curSecTime}</span>
+                        <span style={{color: "white"}}>/</span>
+                        <span style={{color: "white"}}>{durMinTime}:{durSecTime}</span>
+                    </div>
+
                     {/*<button>Stop</button>*/}
                 </div>
             </div>
@@ -78,50 +80,3 @@ const Video: React.FC = () => {
 };
 
 export default Video;
-
-interface IProps {
-    changeTime: (value: number) => void,
-    currentTime: number;
-}
-
-const SuperSimple: React.FC<IProps> = ({changeTime, currentTime}) => {
-    const [values, setState] = useState([0]);
-    const onChangeRange = (values: Array<number>) => {
-        changeTime(values[0]);
-        setState(values)
-    };
-
-    return (
-        <Range
-            step={1}
-            min={0}
-            max={100}
-            values={[currentTime]}
-            onChange={values => onChangeRange(values)}
-            renderTrack={({props, children}) => (
-                <div
-                    {...props}
-                    style={{
-                        ...props.style,
-                        height: '5px',
-                        width: '500px',
-                        backgroundColor: '#ccc'
-                    }}
-                >
-                    {children}
-                </div>
-            )}
-            renderThumb={({props}) => (
-                <div
-                    {...props}
-                    style={{
-                        ...props.style,
-                        height: '10px',
-                        width: '5px',
-                        backgroundColor: '#999'
-                    }}
-                />
-            )}
-        />
-    );
-};

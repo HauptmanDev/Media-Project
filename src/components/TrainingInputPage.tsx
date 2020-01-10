@@ -1,10 +1,12 @@
 import React from 'react';
-import TrainingInputContainer from "./TrainingInputContainer";
+import Header from './Header/Header';
+import Routes from './Header/Routes';
 
 const TrainingInputPage: React.FC = () => {
     return (
         <div>
-            <TrainingInputContainer/>
+            <Header/>
+            <Routes/>
         </div>
     );
 };
