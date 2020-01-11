@@ -1,12 +1,11 @@
 import React, {ChangeEvent, useEffect, useRef, useState} from 'react';
 
 interface IPropsSomeFile {
-    callbackFileData: (fileURL: string, fileData: string) => void
+    callbackFileData: (fileURL: string, fileData: File) => void
 }
 
 const InputSomeFile: React.FC<IPropsSomeFile> = ({callbackFileData}) => {
 //state
-    const [file, saveFile] = useState();
     const [fileURL, saveFileURL] = useState();
     const [fileData, saveFileData] = useState();
 
@@ -30,7 +29,7 @@ const InputSomeFile: React.FC<IPropsSomeFile> = ({callbackFileData}) => {
         const formData = new FormData();
         const newFile = e.target.files && e.target.files[0];
         reader.onloadend = () => {
-            saveFile(newFile);
+            // saveFile(newFile);
             saveFileURL(window.URL.createObjectURL(newFile)); // blob-url
             newFile && formData.append('file', newFile, newFile.name);
             saveFileData(formData.get('file'));

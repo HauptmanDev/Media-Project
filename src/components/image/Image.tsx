@@ -8,10 +8,10 @@ interface IPropsImage {
 const Image: React.FC<IPropsImage> = () => {
 //state
     const [imageURL, changeImageURL] = useState('');
-    const [imageData, changeImageData] = useState('');
+    const [imageData, changeImageData] = useState();
 
 
-    const saveData = (fileURL: string, fileData: string) => {
+    const saveData = (fileURL: string, fileData: File) => {
         changeImageURL(fileURL);
         changeImageData(fileData)
     };
@@ -20,9 +20,8 @@ const Image: React.FC<IPropsImage> = () => {
         <>
             <InputSomeFile callbackFileData={saveData}/>
             <div>
-                <img style={{width: '200px', height: '200px'}} src={imageURL} alt={'some file'}/>
+                <img style={{width: '200px', height: '300px'}} src={imageURL} alt={'some file'}/>
             </div>
-
         </>
     );
 };
