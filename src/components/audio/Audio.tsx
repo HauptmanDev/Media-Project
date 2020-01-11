@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
 import InputSomeFile from "../common/InputSomeFile";
+import VolumeIcon from "../assets/VolumeIcon.png";
 
 
 interface IPropsAudio {
@@ -30,6 +31,9 @@ const Audio: React.FC<IPropsAudio> = () => {
         }
     };
 
+    const setVolume = (volumeValue: number) => {
+        audioRef.current!.volume = volumeValue
+    };
 
     //https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3
 
@@ -44,8 +48,13 @@ const Audio: React.FC<IPropsAudio> = () => {
                     <p>Ваш браузер не поддерживает HTML5 аудио. Вот взамен
                         <a href={audioURL}>ссылка на аудио</a></p>
                 </audio>
-                <div>
-                    <button onClick={onPlayPause}>{titlePlayPause}</button>
+                <div style={{margin: '10px'}}>
+                    <button style={{margin: '10px'}} onClick={onPlayPause}>{titlePlayPause}</button>
+                    <img style={{width: '50px', height: '50px'}} src={VolumeIcon} alt="VolumeIcon"/>
+                    <input type="range" min={0} max={100} onChange={(e) => {
+                        setVolume(+e.currentTarget.value / 100)
+                    }
+                    }/>
                 </div>
             </div>
         </>
