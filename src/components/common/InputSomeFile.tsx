@@ -25,7 +25,7 @@ const InputSomeFile: React.FC<IPropsSomeFile> = ({callbackFileData}) => {
     };
 
     const onSaveFile = (e: ChangeEvent<HTMLInputElement>) => {
-        const reader = new FileReader;
+        const reader = new FileReader();
         const formData = new FormData();
         const newFile = e.target.files && e.target.files[0];
         reader.onloadend = () => {
