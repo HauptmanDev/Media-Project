@@ -21,6 +21,12 @@ const Video: React.FC = () => {
         }
     };
 
+    const onFullScreen = () => {
+        if (videoRef.current!.requestFullscreen) {
+            videoRef.current!.requestFullscreen();
+        }
+    };
+
     const changeTime = (value: number) => {
         videoRef.current!.currentTime = videoRef.current!.duration * (value / 100)
     };
@@ -72,6 +78,7 @@ const Video: React.FC = () => {
                         <span style={{color: "white"}}>{durMinTime}:{durSecTime}</span>
                     </div>
 
+                    <button onClick={onFullScreen}>Full Screen</button>
                     {/*<button>Stop</button>*/}
                 </div>
             </div>
